@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leverage Our Sun | NEM 3.0 Qualification</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --accent1:#fbbf24;
+      --accent2:#22c55e;
+      --danger:#ef4444;
+      --ok:#10b981;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -10%, rgba(251,191,36,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,.14), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+    .wrap{
+      max-width:720px;
+      margin:0 auto;
+      padding:24px 16px 40px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:12px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .brand h2{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.6px;
+      color:var(--muted);
+      font-weight:600;
+      text-transform:uppercase;
+      flex:1;
+    }
+    .card{
+      background: rgba(15,27,51,.92);
+      border:1px solid rgba(148,163,184,.18);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+    }
+    h1{
+      margin:4px 0 10px;
+      font-size:22px;
+      line-height:1.2;
+    }
+    p{margin:8px 0;color:var(--muted);line-height:1.5}
+    .pillrow{
+      display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px;
+    }
+    .pill{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.22);
+      color:#cbd5e1;
+      background: rgba(2,6,23,.35);
+    }
+    form{margin-top:14px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .grid1{grid-template-columns:1fr}
+    label{
+      display:block;
+      text-align:left;
+      font-size:12px;
+      color:#cbd5e1;
+      margin:10px 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.22);
+      background: rgba(2,6,23,.40);
+      color: var(--text);
+      outline:none;
+      font-size:15px;
+    }
+    textarea{min-height:90px;resize:vertical}
+    .btn{
+      margin-top:14px;
+      width:100%;
+      border:none;
+      border-radius:14px;
+      padding:14px 14px;
+      font-size:16px;
+      font-weight:800;
+      color:#06121f;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      cursor:pointer;
+    }
+    .btn:disabled{opacity:.55;cursor:not-allowed}
+    .status{
+      margin-top:12px;
+      font-size:14px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(148,163,184,.22);
+      background: rgba(2,6,23,.35);
+      color:#cbd5e1;
+      display:none;
+    }
+    .status.ok{border-color: rgba(16,185,129,.35); color:#d1fae5}
+    .status.err{border-color: rgba(239,68,68,.35); color:#fee2e2}
+    .fineprint{
+      margin-top:12px;
+      font-size:12px;
+      color:#8aa0bf;
+    }
+    .divider{height:1px;background:rgba(148,163,184,.16);margin:14px 0}
+    .smallnote{font-size:12px;color:#9fb2cc}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo" aria-label="LOS"></div>
+      <h2>Leverage Our Sun • NEM 3.0 / Net Billing Qualification</h2>
+    </div>
+
+    <div class="card">
+      <h1>See if your home qualifies under California’s new Net Billing rules (NEM 3.0)</h1>
+      <p>
+        Under Net Billing, daytime solar exports are worth less — so many homes need a battery to get real savings,
+        especially during the 4–9 PM high-rate window. Submit your info and we’ll confirm eligibility.
+      </p>
+
+      <div class="pillrow">
+        <span class="pill">Homeowners only</span>
+        <span class="pill">SCE / SDG&E / PG&E</span>
+        <span class="pill">Solar + Battery focus</span>
+        <span class="pill">Quick qualification check</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <form id="leadForm">
+        <div class="grid">
+          <div>
+            <label>First name</label>
+            <input name="first_name" required placeholder="Carlos" />
+          </div>
+          <div>
+            <label>Last name</label>
+            <input name="last_name" required placeholder="Nieto" />
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Mobile number</label>
+            <input name="phone" required placeholder="(951) 555-1234" />
+          </div>
+          <div>
+            <label>Utility</label>
+            <select name="utility" required>
+              <option value="">Select</option>
+              <option value="SCE">SCE</option>
+              <option value="SDG&E">SDG&E</option>
+              <option value="PG&E">PG&E</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid1">
+          <div>
+            <label>Street address</label>
+            <input name="address" required placeholder="123 Main St, City, CA" />
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Average monthly electric bill</label>
+            <input name="monthly_bill" placeholder="$250" />
+          </div>
+          <div>
+            <label>Do you own the home?</label>
+            <select name="homeowner" required>
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div>
+            <label>Interested in battery backup?</label>
+            <select name="battery_interest">
+              <option value="">Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+              <option value="Not sure">Not sure</option>
+            </select>
+          </div>
+          <div>
+            <label>Anything we should know?</label>
+            <input name="notes" placeholder="Medical devices, EV, high usage, etc." />
+          </div>
+        </div>
+
+        <button class="btn" id="submitBtn" type="submit">Check My Qualification</button>
+        <div id="status" class="status"></div>
+
+        <div class="fineprint">
+          By submitting, you agree to be contacted about your request. Message/data rates may apply.
+        </div>
+        <div class="smallnote">
+          Tip: Battery programs are often most impactful for homes with high 4–9 PM usage or rising TOU costs.
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Supabase JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    // ✅ REQUIRED: paste your Supabase Project URL + ANON key here
+    const SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+    // ✅ REQUIRED: your Edge Function URL (same project)
+    const EDGE_FUNCTION_URL = SUPABASE_URL + "/functions/v1/send-lead-text";
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById("leadForm");
+    const statusEl = document.getElementById("status");
+    const btn = document.getElementById("submitBtn");
+
+    function setStatus(type, msg){
+      statusEl.style.display = "block";
+      statusEl.className = "status " + (type || "");
+      statusEl.textContent = msg;
+    }
+
+    function normalizePhone(p){
+      // Simple normalize; you can improve later
+      return String(p || "").trim();
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      btn.disabled = true;
+      setStatus("", "Submitting…");
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.phone = normalizePhone(data.phone);
+
+      // quick homeowner gate (optional)
+      if (data.homeowner === "No") {
+        btn.disabled = false;
+        setStatus("err", "This program is for homeowners. If you rent, ask the homeowner to submit.");
+        return;
+      }
+
+      try {
+        // 1) Insert into Supabase table
+        const { error: insertError } = await supabaseClient
+          .from("leads")
+          .insert([data]);
+
+        if (insertError) throw insertError;
+
+        // 2) Call Edge Function to text you via Twilio
+        const res = await fetch(EDGE_FUNCTION_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + SUPABASE_ANON_KEY
+          },
+          body: JSON.stringify(data),
+        });
+
+        const out = await res.json().catch(() => ({}));
+        if (!res.ok || !out.ok) {
+          console.error("Edge function error:", out);
+          // Lead is still saved—so we can show success but note text issue
+          setStatus("ok", "Submitted! We received your request. (SMS alert may be delayed.)");
+        } else {
+          setStatus("ok", "Submitted! We’ll reach out shortly.");
+        }
+
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        setStatus("err", "Something went wrong. Please try again or text us directly.");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
