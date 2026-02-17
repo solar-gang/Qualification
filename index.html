@@ -7,16 +7,24 @@
 
 <style>
   :root{
-    --bg:#000;
-    --card:#1c1c1e;
-    --card2:#2c2c2e;
-    --text:#fff;
-    --muted:#8e8e93;
+    /* Edison-inspired (no logo) */
+    --sce-green:#0b6b3a;
+    --sce-green-dark:#085b31;
+    --sce-gold:#f5cf54;
+    --sce-gold-2:#f1c94a;
 
-    --blue:#0a84ff;
-    --green:#30d158;
-    --red:#ff453a;
-    --orange:#ff9f0a;
+    /* Page */
+    --bg:#07130c;                 /* deep green-black */
+    --card:#0c1b12;               /* dark green card */
+    --card2:#0f2418;              /* darker input */
+    --line:rgba(255,255,255,.12);
+
+    --text:#f7fbff;
+    --muted:#b8c6cf;
+
+    --cta:#0a84ff;                /* action blue (iOS) */
+    --ok:#30d158;
+    --err:#ff453a;
 
     --shadow: 0 14px 50px rgba(0,0,0,.55);
   }
@@ -25,9 +33,10 @@
   body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",system-ui,Roboto,Arial,sans-serif;
-    background: radial-gradient(900px 500px at 20% -10%, rgba(48,209,88,.12), transparent 60%),
-                radial-gradient(900px 500px at 90% 0%, rgba(10,132,255,.12), transparent 60%),
-                var(--bg);
+    background:
+      radial-gradient(900px 520px at 20% -10%, rgba(245,207,84,.18), transparent 60%),
+      radial-gradient(900px 520px at 95% 0%, rgba(11,107,58,.22), transparent 62%),
+      var(--bg);
     color:var(--text);
   }
 
@@ -37,19 +46,13 @@
     padding:18px 14px 60px;
   }
 
-  /* Subtle iOS-ish entrance */
-  .fadeUp{
-    opacity:0;
-    transform: translateY(10px);
-    animation: fadeUp .45s ease-out forwards;
-  }
+  /* Subtle entrance */
+  .fadeUp{opacity:0; transform: translateY(10px); animation: fadeUp .45s ease-out forwards;}
   .fadeUp.d1{animation-delay:.05s}
   .fadeUp.d2{animation-delay:.12s}
   .fadeUp.d3{animation-delay:.18s}
   .fadeUp.d4{animation-delay:.24s}
-  @keyframes fadeUp{
-    to{opacity:1; transform:translateY(0);}
-  }
+  @keyframes fadeUp{to{opacity:1; transform:translateY(0);} }
 
   /* Header */
   .header{
@@ -59,9 +62,7 @@
     gap:12px;
     margin-bottom:14px;
   }
-  .headerLeft{
-    min-width:0;
-  }
+  .headerLeft{min-width:0}
   .headerTitle{
     font-weight:900;
     font-size:15px;
@@ -84,18 +85,18 @@
     flex:0 0 auto;
   }
 
-  /* Spanish toggle (VERY visible) */
+  /* Language toggle (very visible) */
   .langBtn{
     width:100%;
-    background: var(--blue);
-    color: #fff;
-    font-weight:900;
-    font-size:18px;
-    padding:16px 14px;
     border:none;
     border-radius:18px;
-    box-shadow: var(--shadow);
+    padding:16px 14px;
+    font-size:18px;
+    font-weight:1000;
     cursor:pointer;
+    background: linear-gradient(90deg, var(--sce-gold), #ffe28a);
+    color:#142015;
+    box-shadow: var(--shadow);
   }
   .langBtn:active{transform: translateY(1px);}
   .langHint{
@@ -106,93 +107,118 @@
     line-height:1.3;
   }
 
-  /* Alert Card */
-  .alertCard{
-    background: var(--card);
+  /* NOTICE (Edison-style colors, no logo) */
+  .notice{
     border-radius:22px;
-    padding:18px;
+    overflow:hidden;
     box-shadow: var(--shadow);
-    border: 1px solid rgba(255,255,255,.08);
-  }
-  .alertTitle{
-    font-size:22px;
-    font-weight:1000;
-    letter-spacing:.2px;
-    margin:0 0 10px;
-  }
-  .badgeRow{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:10px 0 12px;
-  }
-  .badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 12px;
-    border-radius:999px;
-    font-size:13px;
-    font-weight:900;
-    background: rgba(255,255,255,.07);
     border:1px solid rgba(255,255,255,.10);
-    color:#f2f2f7;
   }
-  .badge.red{background: rgba(255,69,58,.18); border-color: rgba(255,69,58,.28);}
-  .badge.orange{background: rgba(255,159,10,.18); border-color: rgba(255,159,10,.28);}
-  .badge.green{background: rgba(48,209,88,.16); border-color: rgba(48,209,88,.24);}
-
-  .alertText{
-    font-size:17px;
+  .noticeTop{
+    background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
+    padding:14px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .noticeTitle{
+    margin:0;
+    font-size:20px;
+    font-weight:1100;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+  }
+  .noticeTag{
+    font-size:12px;
+    padding:7px 10px;
+    border-radius:999px;
+    background: rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.18);
+    color:#eafff3;
+    white-space:nowrap;
+    font-weight:900;
+  }
+  .noticeBody{
+    background: linear-gradient(180deg, var(--sce-gold), var(--sce-gold-2));
+    color:#101828;
+    padding:16px;
+  }
+  .noticeBody p{
+    margin:0 0 12px;
+    font-size:16px;
     line-height:1.5;
-    margin:0 0 10px;
-    color:#f2f2f7;
+    font-weight:750;
   }
-
+  .noticeBody p:last-child{margin-bottom:0}
   .mustReadBox{
     margin-top:12px;
     border-radius:18px;
     padding:14px;
-    background: rgba(255,69,58,.12);
+    background: rgba(255,69,58,.10);
     border: 1px solid rgba(255,69,58,.28);
-    font-weight:900;
+    font-weight:1000;
     font-size:15px;
     line-height:1.35;
+    color:#101828;
+  }
+  .noticeFooter{
+    background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
+    color:#eafff3;
+    padding:14px 16px;
+    font-weight:1000;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .noticeArrow{
+    width:40px;height:40px;
+    border-radius:14px;
+    background: rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.18);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+    flex:0 0 auto;
   }
 
+  /* Buttons under notice */
+  .btnRow{
+    margin-top:12px;
+    display:grid;
+    gap:10px;
+  }
   .primaryBtn{
     width:100%;
     padding:16px;
     border:none;
     border-radius:18px;
     font-size:18px;
-    font-weight:1000;
-    background: var(--green);
-    color:#041106;
+    font-weight:1100;
+    background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
+    color:#eafff3;
     cursor:pointer;
-    margin-top:14px;
   }
   .primaryBtn:active{transform: translateY(1px);}
-
-  .secondaryBtn{
+  .linkBtn{
     width:100%;
     padding:14px;
     border-radius:16px;
-    border:1px solid rgba(255,255,255,.10);
+    border:1px solid rgba(11,107,58,.25);
+    background: rgba(11,107,58,.10);
+    color:#eafff3;
     font-size:16px;
-    font-weight:800;
-    background: var(--card2);
-    color: #fff;
+    font-weight:950;
     cursor:pointer;
-    margin-top:10px;
   }
-  .secondaryBtn:active{transform: translateY(1px);}
+  .linkBtn:active{transform: translateY(1px);}
 
   /* Big savings */
   .bigSavings{
     margin-top:14px;
-    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    border:1px solid rgba(255,255,255,.08);
+    background: rgba(12,27,18,.92);
+    border:1px solid rgba(255,255,255,.10);
     padding:18px;
     border-radius:22px;
     box-shadow: var(--shadow);
@@ -200,44 +226,45 @@
   }
   .bigLabel{
     color:var(--muted);
-    font-weight:900;
+    font-weight:950;
     font-size:14px;
     letter-spacing:.2px;
   }
   .bigAmount{
     font-size:76px;
-    font-weight:1100;
-    color: var(--green);
+    font-weight:1200;
+    color: #d9ffe8; /* bright readable */
     margin:8px 0 6px;
     line-height:1;
+    text-shadow: 0 0 0 rgba(0,0,0,0);
   }
   .bigSub{
     font-size:17px;
-    font-weight:800;
+    font-weight:900;
     line-height:1.35;
     margin:0;
-    color:#f2f2f7;
+    color:#f2f6ff;
   }
   .guarantee{
     margin-top:12px;
-    background: rgba(255,69,58,.12);
-    border:1px solid rgba(255,69,58,.28);
+    background: rgba(245,207,84,.12);
+    border:1px solid rgba(245,207,84,.28);
     border-radius:18px;
     padding:14px;
     font-size:15px;
-    font-weight:1000;
+    font-weight:1100;
     line-height:1.35;
-    color:#fff;
+    color:#f7fbff;
   }
 
   /* Bill */
   .billWrap{
     margin-top:14px;
-    background: var(--card);
+    background: rgba(12,27,18,.92);
     border-radius:22px;
     padding:14px;
     box-shadow: var(--shadow);
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
   }
   .billTitleRow{
     display:flex;
@@ -248,25 +275,25 @@
   }
   .billTitle{
     font-size:16px;
-    font-weight:1000;
+    font-weight:1100;
     margin:0;
     line-height:1.25;
   }
   .pill{
     font-size:12px;
-    font-weight:900;
+    font-weight:950;
     padding:8px 10px;
     border-radius:999px;
-    background: rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.10);
-    color: var(--muted);
+    background: rgba(245,207,84,.12);
+    border:1px solid rgba(245,207,84,.18);
+    color:#ffe9a8;
     white-space:nowrap;
     flex:0 0 auto;
   }
   .billImg{
     width:100%;
     border-radius:16px;
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
     display:block;
   }
 
@@ -280,7 +307,7 @@
     gap:12px;
     align-items:flex-start;
     background: rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
     border-radius:18px;
     padding:12px;
   }
@@ -290,38 +317,38 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:1100;
-    background: linear-gradient(90deg, var(--blue), var(--green));
-    color:#031018;
+    font-weight:1200;
+    background: linear-gradient(90deg, var(--sce-gold), var(--sce-green));
+    color:#142015;
     flex:0 0 auto;
     font-size:18px;
   }
   .stepTitle{
-    font-weight:1000;
+    font-weight:1100;
     font-size:16px;
     line-height:1.25;
     margin:0 0 4px;
   }
   .stepText{
     margin:0;
-    color:#d1d1d6;
+    color:#d5dee6;
     font-size:15px;
     line-height:1.45;
-    font-weight:700;
+    font-weight:750;
   }
 
   /* Form */
   .formCard{
     margin-top:14px;
-    background: var(--card);
+    background: rgba(12,27,18,.92);
     padding:18px;
     border-radius:22px;
     box-shadow: var(--shadow);
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
   }
   .formTitle{
     font-size:20px;
-    font-weight:1100;
+    font-weight:1200;
     margin:0 0 10px;
   }
   .formIntro{
@@ -329,30 +356,30 @@
     color:var(--muted);
     font-size:14px;
     line-height:1.35;
-    font-weight:700;
+    font-weight:750;
   }
 
   label{
     display:block;
     font-size:14px;
-    font-weight:900;
+    font-weight:950;
     margin-top:12px;
-    color:#f2f2f7;
+    color:#f2f6ff;
   }
   input, select{
     width:100%;
     padding:14px;
     margin-top:6px;
     border-radius:16px;
-    border:1px solid rgba(255,255,255,.10);
-    font-size:16px; /* prevents iOS zoom */
+    border:1px solid rgba(245,207,84,.20);
+    font-size:16px;
     background: var(--card2);
     color: var(--text);
     outline:none;
   }
   input:focus, select:focus{
-    border-color: rgba(10,132,255,.55);
-    box-shadow: 0 0 0 4px rgba(10,132,255,.18);
+    border-color: rgba(245,207,84,.55);
+    box-shadow: 0 0 0 4px rgba(245,207,84,.18);
   }
 
   .row2{
@@ -371,17 +398,18 @@
     margin-top:14px;
     padding:12px;
     border-radius:18px;
-    background: rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
+    background: rgba(245,207,84,.08);
+    border:1px solid rgba(245,207,84,.18);
   }
   .consentRow input{
     width:20px;height:20px;margin-top:2px;
+    accent-color: var(--sce-gold);
   }
   .consentText{
-    color:#d1d1d6;
+    color:#dde6ee;
     font-size:13px;
     line-height:1.35;
-    font-weight:700;
+    font-weight:750;
   }
 
   .submitBtn{
@@ -391,22 +419,23 @@
     border:none;
     border-radius:18px;
     font-size:18px;
-    font-weight:1100;
-    background: var(--blue);
-    color:#fff;
+    font-weight:1200;
+    background: linear-gradient(90deg, var(--sce-gold), #ffe28a);
+    color:#142015;
     cursor:pointer;
   }
   .submitBtn:disabled{opacity:.65; cursor:not-allowed;}
+
   .status{
     margin-top:12px;
     padding:12px;
     border-radius:18px;
     background: rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
-    color:#f2f2f7;
+    border:1px solid rgba(255,255,255,.10);
+    color:#f2f6ff;
     font-size:14px;
     line-height:1.35;
-    font-weight:700;
+    font-weight:750;
     display:none;
   }
   .status.ok{border-color: rgba(48,209,88,.28); background: rgba(48,209,88,.10);}
@@ -417,40 +446,40 @@
     color:var(--muted);
     font-size:12px;
     line-height:1.35;
-    font-weight:700;
+    font-weight:750;
   }
 
   /* Success screen */
   .successCard{
     display:none;
     margin-top:14px;
-    background: var(--card);
+    background: rgba(12,27,18,.92);
     padding:18px;
     border-radius:22px;
     box-shadow: var(--shadow);
-    border:1px solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.10);
     text-align:center;
   }
   .check{
     width:64px;height:64px;
     border-radius:22px;
     margin: 4px auto 10px;
-    background: rgba(48,209,88,.18);
-    border:1px solid rgba(48,209,88,.28);
+    background: rgba(48,209,88,.14);
+    border:1px solid rgba(48,209,88,.26);
     display:flex;align-items:center;justify-content:center;
     font-size:34px;
   }
   .successTitle{
-    font-weight:1100;
+    font-weight:1200;
     font-size:20px;
     margin:0 0 8px;
   }
   .successText{
     margin:0;
-    color:#d1d1d6;
+    color:#d5dee6;
     font-size:15px;
     line-height:1.45;
-    font-weight:700;
+    font-weight:750;
   }
 
   /* Modal (in-page window) */
@@ -488,7 +517,7 @@
     color:#fff;
     padding:8px 10px;
     border-radius:12px;
-    font-weight:900;
+    font-weight:950;
     font-size:13px;
     max-width:70%;
     overflow:hidden;
@@ -502,14 +531,10 @@
     border:none;
     padding:10px 12px;
     border-radius:12px;
-    font-weight:1000;
+    font-weight:1100;
     cursor:pointer;
   }
-  iframe{
-    width:100%;
-    height:100%;
-    border:none;
-  }
+  iframe{width:100%; height:100%; border:none;}
 
   /* Scroll target */
   #formSection{scroll-margin-top: 14px;}
@@ -532,41 +557,49 @@
   </button>
   <div class="langHint fadeUp d2" data-i18n="lang_hint">Tap to switch between English and Spanish.</div>
 
-  <div class="alertCard fadeUp d3">
-    <div class="alertTitle" data-i18n="alert_title">⚠️ MUST READ — EDISON CUSTOMERS</div>
-
-    <div class="badgeRow">
-      <div class="badge red" data-i18n="badge_important">IMPORTANT</div>
-      <div class="badge orange" data-i18n="badge_rates">RATES UPDATED</div>
-      <div class="badge green" data-i18n="badge_qual">QUALIFICATION REQUIRED</div>
+  <!-- Edison-style NOTICE (no logo) -->
+  <div class="notice fadeUp d3" aria-label="Utility notice">
+    <div class="noticeTop">
+      <h1 class="noticeTitle" data-i18n="notice_title">NOTICE</h1>
+      <div class="noticeTag" data-i18n="notice_tag">EDISON CUSTOMERS</div>
     </div>
 
-    <p class="alertText" data-i18n="alert_p1">
-      Under California’s Net Billing rules (NEM 3.0), savings depend on reducing expensive peak-hour electricity purchases.
-    </p>
-    <p class="alertText" data-i18n="alert_p2">
-      We review your bill to determine whether a solar + battery plan can lower your total electricity cost.
-    </p>
+    <div class="noticeBody">
+      <p data-i18n="alert_p1">
+        Under California’s Net Billing rules (NEM 3.0), savings depend on reducing expensive peak-hour electricity purchases.
+      </p>
+      <p data-i18n="alert_p2">
+        We review your bill to determine whether a solar + battery plan can lower your total electricity cost.
+      </p>
 
-    <div class="mustReadBox" data-i18n="must_read">
-      We only move forward if savings can be guaranteed from Day 1. If we can’t guarantee savings, you won’t be selected.
+      <div class="mustReadBox" data-i18n="must_read">
+        We only move forward if savings can be guaranteed from Day 1. If we can’t guarantee savings, you won’t be selected.
+      </div>
+
+      <!-- Buttons BELOW the notice body -->
+      <div class="btnRow" aria-label="Actions">
+        <button class="primaryBtn" id="toFormBtn" type="button" data-i18n="check_btn">
+          Check Eligibility (Go to Form)
+        </button>
+
+        <button class="linkBtn" type="button"
+          onclick="openModal('Edison 13% Rate Update','https://www.sce.com/save-money/rates-financing/residential-rate-plans/understanding-updates-to-your-bill')"
+          data-i18n="rate_btn">
+          View Edison 13% Rate Update
+        </button>
+
+        <button class="linkBtn" type="button"
+          onclick="openModal('Pasadena Now Article','https://pasadenanow.com/main/edison-has-extended-500-offers-worth-165-million-through-eaton-compensation-program-survivors-group-calls-payouts-inadequate')"
+          data-i18n="article_btn">
+          View Pasadena Article
+        </button>
+      </div>
     </div>
 
-    <button class="primaryBtn" id="toFormBtn" type="button" data-i18n="check_btn">
-      Check Eligibility (Go to Form)
-    </button>
-
-    <button class="secondaryBtn" type="button"
-      onclick="openModal('Edison 13% Rate Update','https://www.sce.com/save-money/rates-financing/residential-rate-plans/understanding-updates-to-your-bill')"
-      data-i18n="rate_btn">
-      View Edison 13% Rate Update
-    </button>
-
-    <button class="secondaryBtn" type="button"
-      onclick="openModal('Pasadena Now Article','https://pasadenanow.com/main/edison-has-extended-500-offers-worth-165-million-through-eaton-compensation-program-survivors-group-calls-payouts-inadequate')"
-      data-i18n="article_btn">
-      View Pasadena Article
-    </button>
+    <div class="noticeFooter">
+      <div data-i18n="notice_footer">Eligibility request form</div>
+      <div class="noticeArrow">›</div>
+    </div>
   </div>
 
   <div class="bigSavings fadeUp d4">
@@ -742,10 +775,8 @@
   /***************
    * CONFIG
    ***************/
-  // If you want the form to store leads + trigger SMS, paste your Supabase values:
   const SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
   const SUPABASE_ANON_KEY = "YOUR_ANON_KEY";
-  // Optional (Twilio via Supabase Edge Function):
   const EDGE_FUNCTION_URL = SUPABASE_URL + "/functions/v1/send-lead-text";
 
   const supabaseEnabled = !SUPABASE_URL.includes("YOUR_PROJECT_REF") && !SUPABASE_ANON_KEY.includes("YOUR_ANON_KEY");
@@ -761,13 +792,14 @@
       header_sub: "Homeowners • Bill review • Qualification required",
       lang_hint: "Tap to switch between English and Spanish.",
 
-      alert_title: "⚠️ MUST READ — EDISON CUSTOMERS",
-      badge_important: "IMPORTANT",
-      badge_rates: "RATES UPDATED",
-      badge_qual: "QUALIFICATION REQUIRED",
+      notice_title: "NOTICE",
+      notice_tag: "EDISON CUSTOMERS",
+      notice_footer: "Eligibility request form",
+
       alert_p1: "Under California’s Net Billing rules (NEM 3.0), savings depend on reducing expensive peak-hour electricity purchases.",
       alert_p2: "We review your bill to determine whether a solar + battery plan can lower your total electricity cost.",
       must_read: "We only move forward if savings can be guaranteed from Day 1. If we can’t guarantee savings, you won’t be selected.",
+
       check_btn: "Check Eligibility (Go to Form)",
       rate_btn: "View Edison 13% Rate Update",
       article_btn: "View Pasadena Article",
@@ -815,7 +847,6 @@
 
       status_submitting: "Submitting…",
       status_need_homeowner: "This request is for homeowners. Please have the homeowner submit the form.",
-      status_saved_no_sms: "Submitted. We received your request.",
       status_error: "Something went wrong. Please try again.",
 
       success_title: "Request Received",
@@ -827,13 +858,14 @@
       header_sub: "Solo propietarios • Revisión del recibo • Se requiere calificación",
       lang_hint: "Toque para cambiar entre inglés y español.",
 
-      alert_title: "⚠️ OBLIGATORIO LEER — CLIENTES DE EDISON",
-      badge_important: "IMPORTANTE",
-      badge_rates: "TARIFAS ACTUALIZADAS",
-      badge_qual: "SE REQUIERE CALIFICAR",
+      notice_title: "AVISO",
+      notice_tag: "CLIENTES DE EDISON",
+      notice_footer: "Formulario de elegibilidad",
+
       alert_p1: "Bajo las reglas de Facturación Neta (NEM 3.0), los ahorros dependen de reducir compras de electricidad en horas pico (más caras).",
       alert_p2: "Revisamos su recibo para determinar si un plan de solar + batería puede reducir su costo total de electricidad.",
       must_read: "Solo avanzamos si podemos garantizar ahorros desde el día 1. Si no podemos garantizar ahorros, no será seleccionado.",
+
       check_btn: "Verificar elegibilidad (Ir al formulario)",
       rate_btn: "Ver actualización de tarifa 13% (Edison)",
       article_btn: "Ver artículo de Pasadena",
@@ -881,7 +913,6 @@
 
       status_submitting: "Enviando…",
       status_need_homeowner: "Esta solicitud es solo para propietarios. Pida al propietario que complete el formulario.",
-      status_saved_no_sms: "Enviado. Recibimos su solicitud.",
       status_error: "Algo salió mal. Inténtelo de nuevo.",
 
       success_title: "Solicitud recibida",
@@ -898,12 +929,11 @@
       if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
     });
 
-    // Update big language button label
     const btnText = document.getElementById("langBtnText");
-    if (lang === "en") btnText.textContent = "ESPAÑOL — TOQUE AQUÍ PARA LEER EN ESPAÑOL";
-    else btnText.textContent = "ENGLISH — TAP HERE TO READ IN ENGLISH";
+    btnText.textContent = (lang === "en")
+      ? "ESPAÑOL — TOQUE AQUÍ PARA LEER EN ESPAÑOL"
+      : "ENGLISH — TAP HERE TO READ IN ENGLISH";
 
-    // Placeholders (keep simple & readable)
     document.getElementById("name").placeholder = (lang === "es") ? "Nombre y apellido" : "First Last";
     document.getElementById("phone").placeholder = "(951) 555-1234";
     document.getElementById("email").placeholder = (lang === "es") ? "tucorreo@email.com" : "you@email.com";
@@ -911,7 +941,6 @@
     document.getElementById("address").placeholder = (lang === "es") ? "123 Main St, Ciudad, CA" : "123 Main St, City, CA";
   }
 
-  // Auto-detect Spanish if user's device is Spanish
   const prefersSpanish = (navigator.language || "").toLowerCase().startsWith("es");
   applyLang(prefersSpanish ? "es" : "en");
 
@@ -943,11 +972,9 @@
     modal.style.display = "none";
     frame.src = "";
   }
-  // expose for inline onclick
   window.openModal = openModal;
   window.closeModal = closeModal;
 
-  // close modal on background tap (not required, but nice)
   document.getElementById("modal").addEventListener("click", (e) => {
     if (e.target.id === "modal") closeModal();
   });
@@ -974,8 +1001,6 @@
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    // honeypot
     if (document.getElementById("company").value) return;
 
     submitBtn.disabled = true;
@@ -989,7 +1014,6 @@
       return;
     }
 
-    // Prepare payload
     const payload = {
       name: data.name,
       phone: data.phone,
@@ -1007,11 +1031,9 @@
 
     try {
       if (supabaseEnabled){
-        // Store lead
         const { error } = await supabaseClient.from("leads").insert([payload]);
         if (error) throw error;
 
-        // Optional: notify you via Edge Function (Twilio). If not deployed, this will just be skipped.
         try{
           await fetch(EDGE_FUNCTION_URL, {
             method:"POST",
@@ -1022,12 +1044,8 @@
             body: JSON.stringify(payload)
           });
         }catch(_){}
-      } else {
-        // If Supabase not configured, still show success so the page works during testing.
-        // (No storage happens until you paste real keys.)
       }
 
-      // Success screen (Apple-ish)
       statusEl.style.display = "none";
       formCard.style.display = "none";
       successCard.style.display = "block";
