@@ -7,22 +7,21 @@
 
 <style>
   :root{
-    /* Edison-inspired (no logo) */
+    /* Edison notice colors (no logo) */
     --sce-green:#0b6b3a;
     --sce-green-dark:#085b31;
     --sce-gold:#f5cf54;
     --sce-gold-2:#f1c94a;
 
     /* Page */
-    --bg:#07130c;                 /* deep green-black */
-    --card:#0c1b12;               /* dark green card */
-    --card2:#0f2418;              /* darker input */
+    --bg:#07130c;
+    --card:#0c1b12;
+    --card2:#0f2418;
     --line:rgba(255,255,255,.12);
 
     --text:#f7fbff;
     --muted:#b8c6cf;
 
-    --cta:#0a84ff;                /* action blue (iOS) */
     --ok:#30d158;
     --err:#ff453a;
 
@@ -107,7 +106,7 @@
     line-height:1.3;
   }
 
-  /* NOTICE (Edison-style colors, no logo) */
+  /* NOTICE (match your screenshot layout) */
   .notice{
     border-radius:22px;
     overflow:hidden;
@@ -116,76 +115,71 @@
   }
   .noticeTop{
     background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
-    padding:14px 16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+    padding:16px;
+    text-align:center;
   }
   .noticeTitle{
     margin:0;
-    font-size:20px;
-    font-weight:1100;
-    letter-spacing:.6px;
+    font-size:22px;
+    font-weight:1200;
+    letter-spacing:.8px;
     text-transform:uppercase;
-  }
-  .noticeTag{
-    font-size:12px;
-    padding:7px 10px;
-    border-radius:999px;
-    background: rgba(255,255,255,.14);
-    border:1px solid rgba(255,255,255,.18);
     color:#eafff3;
-    white-space:nowrap;
-    font-weight:900;
   }
+
   .noticeBody{
     background: linear-gradient(180deg, var(--sce-gold), var(--sce-gold-2));
     color:#101828;
-    padding:16px;
+    padding:18px 16px;
   }
+
   .noticeBody p{
-    margin:0 0 12px;
+    margin:0 0 14px;
     font-size:16px;
-    line-height:1.5;
-    font-weight:750;
+    line-height:1.55;
+    font-weight:800;
   }
   .noticeBody p:last-child{margin-bottom:0}
-  .mustReadBox{
-    margin-top:12px;
-    border-radius:18px;
-    padding:14px;
-    background: rgba(255,69,58,.10);
-    border: 1px solid rgba(255,69,58,.28);
+
+  .noticeCenterLine{
+    text-align:center;
     font-weight:1000;
+    margin:10px 0 14px;
     font-size:15px;
-    line-height:1.35;
-    color:#101828;
+    line-height:1.45;
   }
+
+  .noticeBoldLine{
+    font-size:18px;
+    font-weight:1200;
+    margin-top:6px;
+    line-height:1.45;
+  }
+
   .noticeFooter{
     background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
     color:#eafff3;
     padding:14px 16px;
     font-weight:1000;
-    font-size:16px;
+    font-size:18px;
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:10px;
   }
   .noticeArrow{
-    width:40px;height:40px;
+    width:42px;height:42px;
     border-radius:14px;
     background: rgba(255,255,255,.14);
     border:1px solid rgba(255,255,255,.18);
     display:flex;align-items:center;justify-content:center;
-    font-size:22px;
+    font-size:24px;
     flex:0 0 auto;
   }
 
   /* Buttons under notice */
   .btnRow{
-    margin-top:12px;
+    margin-top:14px;
     display:grid;
     gap:10px;
   }
@@ -195,7 +189,7 @@
     border:none;
     border-radius:18px;
     font-size:18px;
-    font-weight:1100;
+    font-weight:1200;
     background: linear-gradient(90deg, var(--sce-green), var(--sce-green-dark));
     color:#eafff3;
     cursor:pointer;
@@ -209,7 +203,7 @@
     background: rgba(11,107,58,.10);
     color:#eafff3;
     font-size:16px;
-    font-weight:950;
+    font-weight:1000;
     cursor:pointer;
   }
   .linkBtn:active{transform: translateY(1px);}
@@ -231,16 +225,15 @@
     letter-spacing:.2px;
   }
   .bigAmount{
-    font-size:76px;
-    font-weight:1200;
-    color: #d9ffe8; /* bright readable */
+    font-size:78px;
+    font-weight:1300;
+    color:#d9ffe8;
     margin:8px 0 6px;
     line-height:1;
-    text-shadow: 0 0 0 rgba(0,0,0,0);
   }
   .bigSub{
     font-size:17px;
-    font-weight:900;
+    font-weight:1000;
     line-height:1.35;
     margin:0;
     color:#f2f6ff;
@@ -252,7 +245,7 @@
     border-radius:18px;
     padding:14px;
     font-size:15px;
-    font-weight:1100;
+    font-weight:1200;
     line-height:1.35;
     color:#f7fbff;
   }
@@ -275,7 +268,7 @@
   }
   .billTitle{
     font-size:16px;
-    font-weight:1100;
+    font-weight:1200;
     margin:0;
     line-height:1.25;
   }
@@ -317,14 +310,14 @@
     display:flex;
     align-items:center;
     justify-content:center;
-    font-weight:1200;
+    font-weight:1300;
     background: linear-gradient(90deg, var(--sce-gold), var(--sce-green));
     color:#142015;
     flex:0 0 auto;
     font-size:18px;
   }
   .stepTitle{
-    font-weight:1100;
+    font-weight:1200;
     font-size:16px;
     line-height:1.25;
     margin:0 0 4px;
@@ -334,7 +327,7 @@
     color:#d5dee6;
     font-size:15px;
     line-height:1.45;
-    font-weight:750;
+    font-weight:800;
   }
 
   /* Form */
@@ -348,7 +341,7 @@
   }
   .formTitle{
     font-size:20px;
-    font-weight:1200;
+    font-weight:1300;
     margin:0 0 10px;
   }
   .formIntro{
@@ -356,13 +349,13 @@
     color:var(--muted);
     font-size:14px;
     line-height:1.35;
-    font-weight:750;
+    font-weight:800;
   }
 
   label{
     display:block;
     font-size:14px;
-    font-weight:950;
+    font-weight:1000;
     margin-top:12px;
     color:#f2f6ff;
   }
@@ -409,7 +402,7 @@
     color:#dde6ee;
     font-size:13px;
     line-height:1.35;
-    font-weight:750;
+    font-weight:800;
   }
 
   .submitBtn{
@@ -419,7 +412,7 @@
     border:none;
     border-radius:18px;
     font-size:18px;
-    font-weight:1200;
+    font-weight:1300;
     background: linear-gradient(90deg, var(--sce-gold), #ffe28a);
     color:#142015;
     cursor:pointer;
@@ -435,7 +428,7 @@
     color:#f2f6ff;
     font-size:14px;
     line-height:1.35;
-    font-weight:750;
+    font-weight:800;
     display:none;
   }
   .status.ok{border-color: rgba(48,209,88,.28); background: rgba(48,209,88,.10);}
@@ -446,7 +439,7 @@
     color:var(--muted);
     font-size:12px;
     line-height:1.35;
-    font-weight:750;
+    font-weight:800;
   }
 
   /* Success screen */
@@ -470,7 +463,7 @@
     font-size:34px;
   }
   .successTitle{
-    font-weight:1200;
+    font-weight:1300;
     font-size:20px;
     margin:0 0 8px;
   }
@@ -479,7 +472,7 @@
     color:#d5dee6;
     font-size:15px;
     line-height:1.45;
-    font-weight:750;
+    font-weight:800;
   }
 
   /* Modal (in-page window) */
@@ -517,7 +510,7 @@
     color:#fff;
     padding:8px 10px;
     border-radius:12px;
-    font-weight:950;
+    font-weight:1000;
     font-size:13px;
     max-width:70%;
     overflow:hidden;
@@ -531,7 +524,7 @@
     border:none;
     padding:10px 12px;
     border-radius:12px;
-    font-weight:1100;
+    font-weight:1200;
     cursor:pointer;
   }
   iframe{width:100%; height:100%; border:none;}
@@ -557,26 +550,34 @@
   </button>
   <div class="langHint fadeUp d2" data-i18n="lang_hint">Tap to switch between English and Spanish.</div>
 
-  <!-- Edison-style NOTICE (no logo) -->
+  <!-- NOTICE with your exact wording style (phone number removed) -->
   <div class="notice fadeUp d3" aria-label="Utility notice">
     <div class="noticeTop">
-      <h1 class="noticeTitle" data-i18n="notice_title">NOTICE</h1>
-      <div class="noticeTag" data-i18n="notice_tag">EDISON CUSTOMERS</div>
+      <h1 class="noticeTitle" data-i18n="notice_header">NOTICE EDISON CUSTOMERS</h1>
     </div>
 
     <div class="noticeBody">
-      <p data-i18n="alert_p1">
-        Under California’s Net Billing rules (NEM 3.0), savings depend on reducing expensive peak-hour electricity purchases.
-      </p>
-      <p data-i18n="alert_p2">
-        We review your bill to determine whether a solar + battery plan can lower your total electricity cost.
+      <p data-i18n="n1">
+        Due to Wildfire Lawsuits, all public utilities, including Edison, are required to upgrade overhead lines and infrastructure to reduce fire risk, and are converting homes to Self-Generation with the Virtual Power Plant (VPP) program.
       </p>
 
-      <div class="mustReadBox" data-i18n="must_read">
-        We only move forward if savings can be guaranteed from Day 1. If we can’t guarantee savings, you won’t be selected.
+      <p data-i18n="n2">
+        Directed State Incentives, including the Federal Government ITC, are paying to have Self-Generation systems installed for qualified homes.
+      </p>
+
+      <p data-i18n="n3">
+        Customers NOT enrolled in the CA Virtual Power Plant (VPP) Program will pay MORE for electricity to cover transmission & delivery costs.
+      </p>
+
+      <div class="noticeCenterLine" data-i18n="n4">
+        Assessments by state-licensed program directors are being scheduled THIS WEEK to determine eligibility at no out-of-pocket cost to homeowners.
       </div>
 
-      <!-- Buttons BELOW the notice body -->
+      <div class="noticeBoldLine" data-i18n="n5">
+        Approvals are on a first-come, first-serve basis while funding is available. For questions regarding eligibility, please fill out the Eligibility Request Form below.
+      </div>
+
+      <!-- Buttons BELOW the notice -->
       <div class="btnRow" aria-label="Actions">
         <button class="primaryBtn" id="toFormBtn" type="button" data-i18n="check_btn">
           Check Eligibility (Go to Form)
@@ -597,7 +598,7 @@
     </div>
 
     <div class="noticeFooter">
-      <div data-i18n="notice_footer">Eligibility request form</div>
+      <div data-i18n="notice_footer">Contact us</div>
       <div class="noticeArrow">›</div>
     </div>
   </div>
@@ -662,7 +663,6 @@
     </div>
 
     <form id="leadForm" autocomplete="on">
-      <!-- simple honeypot -->
       <input type="text" name="company" id="company" style="position:absolute;left:-9999px;opacity:0" tabindex="-1" autocomplete="off">
 
       <div class="row2">
@@ -792,13 +792,14 @@
       header_sub: "Homeowners • Bill review • Qualification required",
       lang_hint: "Tap to switch between English and Spanish.",
 
-      notice_title: "NOTICE",
-      notice_tag: "EDISON CUSTOMERS",
-      notice_footer: "Eligibility request form",
+      notice_header: "NOTICE EDISON CUSTOMERS",
+      notice_footer: "Contact us",
 
-      alert_p1: "Under California’s Net Billing rules (NEM 3.0), savings depend on reducing expensive peak-hour electricity purchases.",
-      alert_p2: "We review your bill to determine whether a solar + battery plan can lower your total electricity cost.",
-      must_read: "We only move forward if savings can be guaranteed from Day 1. If we can’t guarantee savings, you won’t be selected.",
+      n1: "Due to Wildfire Lawsuits, all public utilities, including Edison, are required to upgrade overhead lines and infrastructure to reduce fire risk, and are converting homes to Self-Generation with the Virtual Power Plant (VPP) program.",
+      n2: "Directed State Incentives, including the Federal Government ITC, are paying to have Self-Generation systems installed for qualified homes.",
+      n3: "Customers NOT enrolled in the CA Virtual Power Plant (VPP) Program will pay MORE for electricity to cover transmission & delivery costs.",
+      n4: "Assessments by state-licensed program directors are being scheduled THIS WEEK to determine eligibility at no out-of-pocket cost to homeowners.",
+      n5: "Approvals are on a first-come, first-serve basis while funding is available. For questions regarding eligibility, please fill out the Eligibility Request Form below.",
 
       check_btn: "Check Eligibility (Go to Form)",
       rate_btn: "View Edison 13% Rate Update",
@@ -858,13 +859,14 @@
       header_sub: "Solo propietarios • Revisión del recibo • Se requiere calificación",
       lang_hint: "Toque para cambiar entre inglés y español.",
 
-      notice_title: "AVISO",
-      notice_tag: "CLIENTES DE EDISON",
-      notice_footer: "Formulario de elegibilidad",
+      notice_header: "AVISO CLIENTES DE EDISON",
+      notice_footer: "Contáctanos",
 
-      alert_p1: "Bajo las reglas de Facturación Neta (NEM 3.0), los ahorros dependen de reducir compras de electricidad en horas pico (más caras).",
-      alert_p2: "Revisamos su recibo para determinar si un plan de solar + batería puede reducir su costo total de electricidad.",
-      must_read: "Solo avanzamos si podemos garantizar ahorros desde el día 1. Si no podemos garantizar ahorros, no será seleccionado.",
+      n1: "Debido a demandas por incendios forestales, todas las compañías de servicio público, incluyendo Edison, deben mejorar líneas e infraestructura para reducir el riesgo de incendios y están convirtiendo hogares a auto-generación con el programa Planta Virtual (VPP).",
+      n2: "Incentivos estatales y federales (incluyendo ITC) pueden ayudar a instalar sistemas de auto-generación para hogares que califiquen.",
+      n3: "Clientes que NO estén inscritos en el Programa VPP pueden pagar MÁS por electricidad para cubrir costos de transmisión y entrega.",
+      n4: "Evaluaciones por directores de programa con licencia se están programando ESTA SEMANA para determinar elegibilidad sin costo inicial para propietarios.",
+      n5: "Aprobaciones son por orden de llegada mientras haya fondos disponibles. Para preguntas de elegibilidad, complete el Formulario de Solicitud abajo.",
 
       check_btn: "Verificar elegibilidad (Ir al formulario)",
       rate_btn: "Ver actualización de tarifa 13% (Edison)",
@@ -994,11 +996,6 @@
     statusEl.textContent = msg;
   }
 
-  function getSource(){
-    const p = new URLSearchParams(window.location.search);
-    return p.get("src") || p.get("source") || "";
-  }
-
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (document.getElementById("company").value) return;
@@ -1014,26 +1011,27 @@
       return;
     }
 
-    const payload = {
-      name: data.name,
-      phone: data.phone,
-      email: data.email,
-      avg_bill: data.avg_bill,
-      address: data.address,
-      homeowner: data.homeowner,
-      credit_650: data.credit_650,
-      ev: data.ev,
-      has_solar: data.has_solar,
-      lang: currentLang,
-      source: getSource(),
-      created_at_client: new Date().toISOString()
-    };
-
     try {
+      // If Supabase keys are not set, still show success (testing mode).
       if (supabaseEnabled){
+        const payload = {
+          name: data.name,
+          phone: data.phone,
+          email: data.email,
+          avg_bill: data.avg_bill,
+          address: data.address,
+          homeowner: data.homeowner,
+          credit_650: data.credit_650,
+          ev: data.ev,
+          has_solar: data.has_solar,
+          lang: currentLang,
+          created_at_client: new Date().toISOString()
+        };
+
         const { error } = await supabaseClient.from("leads").insert([payload]);
         if (error) throw error;
 
+        // Optional edge function call (Twilio) if you have it deployed:
         try{
           await fetch(EDGE_FUNCTION_URL, {
             method:"POST",
